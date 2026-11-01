@@ -6,6 +6,7 @@ package Lab1;
         private int credits;
         private Instructor instructor;
 
+
         public Course(int id, String courseName, int credits, Instructor instructor) {
             this.id = id;
             this.courseName = courseName;
@@ -54,5 +55,6 @@ package Lab1;
                     ", instructor=" + instructor +
                     '}';
         }
+
     }
 
