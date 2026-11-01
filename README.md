@@ -1,6 +1,6 @@
 # University Management App
 
-A Java console application for managing university students, courses, and enrollments using PostgreSQL.
+A Java application for managing university students and courses.
 
 ## Features
 - Add, view, update, and remove students.
@@ -15,3 +15,4 @@ A Java console application for managing university students, courses, and enroll
 - JDBC
 - PostgreSQL
 - Git and GitHub
+
