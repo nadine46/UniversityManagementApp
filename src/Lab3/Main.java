@@ -31,24 +31,24 @@ public class Main {
                 System.out.println("\n=== University Management System ===");
                 System.out.println("1. View Students");
                 System.out.println("2. Add Student");
-                System.out.println("3. Remove Student");
-                System.out.println("4. Add Course");
-                System.out.println("5. View Courses");
-                System.out.println("6. Remove Course");
-                System.out.println("7. Enroll Student in Course");
-                System.out.println("8. View Student Enrollments");
-                System.out.println("9. Exit");
+                System.out.println("3. Update Student");
+                System.out.println("4. Remove Student");
+                System.out.println("5. Add Course");
+                System.out.println("6. View Courses");
+                System.out.println("7. Remove Course");
+                System.out.println("8. Enroll Student in Course");
+                System.out.println("9. View Student Enrollments");
+                System.out.println("10. Exit");
                 System.out.print("Enter your choice: ");
                 System.out.flush();
 
                 String input = scanner.nextLine();
-
                 int choice;
 
                 try {
                     choice = Integer.parseInt(input.trim());
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter a number from 1 to 9.");
+                    System.out.println("Invalid input. Please enter a number from 1 to 10.");
                     continue;
                 }
 
@@ -70,6 +70,20 @@ public class Main {
                             break;
 
                         case 3:
+                            System.out.print("Enter student ID to update: ");
+                            int updateId = Integer.parseInt(scanner.nextLine().trim());
+
+                            System.out.print("Enter new student name: ");
+                            String newName = scanner.nextLine();
+
+                            System.out.print("Enter new student email: ");
+                            String newEmail = scanner.nextLine();
+
+                            studentDAO.updateStudent(updateId, newName, newEmail);
+                            System.out.println("Student updated successfully.");
+                            break;
+
+                        case 4:
                             System.out.print("Enter student ID to remove: ");
                             int studentId = Integer.parseInt(scanner.nextLine().trim());
 
@@ -77,7 +91,7 @@ public class Main {
                             System.out.println("Student removed successfully.");
                             break;
 
-                        case 4:
+                        case 5:
                             System.out.print("Enter course name: ");
                             String courseName = scanner.nextLine();
 
@@ -88,11 +102,11 @@ public class Main {
                             System.out.println("Course added successfully.");
                             break;
 
-                        case 5:
+                        case 6:
                             courseDAO.getCourses();
                             break;
 
-                        case 6:
+                        case 7:
                             System.out.print("Enter course ID to remove: ");
                             int courseId = Integer.parseInt(scanner.nextLine().trim());
 
@@ -100,7 +114,7 @@ public class Main {
                             System.out.println("Course removed successfully.");
                             break;
 
-                        case 7:
+                        case 8:
                             System.out.print("Enter student ID: ");
                             int enrollStudentId = Integer.parseInt(scanner.nextLine().trim());
 
@@ -111,17 +125,17 @@ public class Main {
                             System.out.println("Student enrolled successfully.");
                             break;
 
-                        case 8:
+                        case 9:
                             enrollmentDAO.getStudentCourses();
                             break;
 
-                        case 9:
+                        case 10:
                             running = false;
                             System.out.println("Exiting University Management System.");
                             break;
 
                         default:
-                            System.out.println("Invalid choice. Please enter a number from 1 to 9.");
+                            System.out.println("Invalid choice. Please enter a number from 1 to 10.");
                     }
 
                 } catch (NumberFormatException e) {
